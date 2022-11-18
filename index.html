@@ -1,0 +1,137 @@
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="ml-compiler.css">
+</head>
+<style>
+
+</style>
+
+<body>
+    <ml-compiler>
+        <div class="grid-container">
+            <tab-header></tab-header>
+
+            <data lp="" netto="" brutto="" vat="" stawka="" kwota=""></data>
+            <data lp="" netto="" brutto="" vat="" stawka="" kwota=""></data>
+            <data lp="" netto="" brutto="" vat="" stawka="" kwota=""></data>
+            <data lp="" netto="" brutto="" vat="" stawka="" kwota=""></data>
+            <data-sum lp="" netto="" brutto="" vat="" stawka="" kwota=""></data-sum>
+            <data lp="" netto="" brutto="" vat="" stawka="" kwota=""></data>
+            <data lp="" netto="" brutto="" vat="" stawka="" kwota=""></data>
+            <data lp="" netto="" brutto="" vat="" stawka="" kwota=""></data>
+            <data lp="" netto="" brutto="" vat="" stawka="" kwota=""></data>
+            <data lp="" netto="" brutto="" vat="" stawka="" kwota=""></data>
+
+        </div>
+        <define>
+            <style>
+                * {
+                    font-family: Calibri
+                }
+                
+                .grid-container {
+                    display: grid;
+                    grid-template-columns: 12vw 20vw 20vw 15vw 15vw auto;
+                    background-color: #a0b0c0;
+                    padding: 1vw;
+                }
+                
+                .grid-item {
+                    background-color: rgba(255, 255, 255, 0.8);
+                    border: 0.1vw solid rgba(0, 0, 0, 0.8);
+                    padding: 0.5vw;
+                    padding-right: 2vw;
+                    font-size: 2vw;
+                    text-align: right;
+                    min-height: 2.5vw;
+                }
+                
+                .grid-sel {
+                    background-color: rgba(155, 255, 155, 0.8);
+                    border: 0.1vw solid rgba(0, 0, 0, 0.8);
+                    padding: 0.5vw;
+                    padding-right: 2vw;
+                    font-size: 2vw;
+                    text-align: right;
+                    min-height: 2.5vw;
+                }
+                
+                .grid-sum {
+                    background-color: rgba(255, 155, 155, 0.8);
+                    border: 0.1vw solid rgba(0, 0, 0, 0.8);
+                    padding: 0.5vw;
+                    padding-right: 2vw;
+                    font-size: 2vw;
+                    text-align: right;
+                    min-height: 2.5vw;
+                }
+                
+                .b {
+                    font-weight: bolder
+                }
+                
+                .g {
+                    color: darkgreen
+                }
+                
+                .bg {
+                    font-weight: bolder;
+                    color: darkgreen
+                }
+            </style>
+            <style>
+                .page-header {
+                    font-size: 3vw;
+                    padding-bottom: 1vw;
+                    padding-top: 1vw;
+                    display: inline-block;
+                }
+            </style>
+            <fun tag-name="page-header">
+                <span class="page-header">{{innerHTML}}</span>
+            </fun>
+            <fun tag-name="h-pos">
+                <div class="grid-item b">{{innerHTML}}</div>
+            </fun>
+            <fun tag-name="tab-header">
+                <h-pos>Lp. / Ile</h-pos>
+                <h-pos>Netto</h-pos>
+                <h-pos>Brutto</h-pos>
+                <h-pos>VAT</h-pos>
+                <h-pos>Stawka</h-pos>
+                <h-pos>Kwota</h-pos>
+            </fun>
+            <fun tag-name="data">
+                <dv class="grid-item">{{a.lp}}</dv>
+                <dv class="grid-item">{{a.netto}}</dv>
+                <dv class="grid-item bg">{{a.brutto}}</dv>
+                <dv class="grid-item">{{a.vat}}</dv>
+                <dv class="grid-item">{{a.stawka}}</dv>
+                <dv class="grid-item">{{a.kwota}}</dv>
+            </fun>
+            <fun tag-name="data-active">
+                <dv class="grid-sel">{{a.lp}}</dv>
+                <dv class="grid-sel">{{a.netto}}</dv>
+                <dv class="grid-sel bg">{{a.brutto}}</dv>
+                <dv class="grid-sel">{{a.vat}}</dv>
+                <dv class="grid-sel">{{a.stawka}}</dv>
+                <dv class="grid-sel">{{a.kwota}}</dv>
+            </fun>
+            <fun tag-name="data-sum">
+                <dv class="grid-sum">{{a.lp}}</dv>
+                <dv class="grid-sum">{{a.netto}}</dv>
+                <dv class="grid-sum b g">{{a.brutto}}</dv>
+                <dv class="grid-sum">{{a.vat}}</dv>
+                <dv class="grid-sum">{{a.stawka}}</dv>
+                <dv class="grid-sum">{{a.kwota}}</dv>
+            </fun>
+        </define>
+
+        <script src="main.js"></script>
+        <script src="ml-compiler.js"></script>
+
+</body>
+
+</html>
