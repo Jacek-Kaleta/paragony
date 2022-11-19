@@ -220,7 +220,10 @@ function digit(d) {
     else
     if (table[line].vat == 'E') table[line].stawka = '0';
 
-    table[line].kwota = Math.round(table[line].brutto /1.23 * table[line].stawka);
+    if (table[line].stawka !='0')
+    table[line].kwota = Math.round(table[line].brutto /(1+table[line].stawka/100) * table[line].stawka);
+    else 
+    table[line].kwota='0';
     table[line].netto = table[line].brutto * 100 - table[line].kwota;
     drawTable();
 }
