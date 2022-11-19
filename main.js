@@ -220,7 +220,7 @@ function digit(d) {
     else
     if (table[line].vat == 'E') table[line].stawka = '0';
 
-    table[line].kwota = Math.round(table[line].brutto * table[line].stawka);
+    table[line].kwota = Math.round(table[line].brutto /1.23 * table[line].stawka);
     table[line].netto = table[line].brutto * 100 - table[line].kwota;
     drawTable();
 }
@@ -264,6 +264,11 @@ window.addEventListener("keydown", function(event) {
     if (event.defaultPrevented) {
         return true;
     }
+
+
+    if (event.key === 'F5') {
+        return true;
+    } else
     if (event.key === '+') {
         digit(event.key)
     } else
