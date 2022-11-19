@@ -1,12 +1,3 @@
-const
-    podatki = [
-        { letter: 'A', tax: '23' },
-        { letter: 'B', tax: '8' },
-        { letter: 'C', tax: '5' },
-        { letter: 'D', tax: '0' },
-        { letter: 'E', tax: '-' }
-    ]
-
 let table = [{ netto: '', brutto: '', vat: 'A', stawka: 23, kwota: '' }];
 let offset = 0;
 let line = 0;
@@ -223,7 +214,7 @@ function digit(d) {
     if (table[line].stawka !='0')
     table[line].kwota = Math.round(table[line].brutto /(1+table[line].stawka/100) * table[line].stawka);
     else 
-    table[line].kwota='0';
+    table[line].kwota=0;
     table[line].netto = table[line].brutto * 100 - table[line].kwota;
     drawTable();
 }
